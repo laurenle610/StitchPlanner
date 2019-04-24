@@ -15,10 +15,21 @@ export class Row extends Component {
     }
 
     renderCells() {
-        const { gridWidth, yAxis } = this.props;
+        const { colorMap, gridWidth, onCellClick, rowMap, selectedColor, yAxis } = this.props;
 
-        return [...Array(gridWidth)].map( (_, xAxis) => {
-            return <Cell key={xAxis} yAxis={yAxis} xAxis={xAxis} />
+        return [...Array(gridWidth)].map((_, xAxis) => {
+            const cellColorId = rowMap && rowMap[xAxis];
+            const cellColor = colorMap[cellColorId];
+            return (
+                <Cell
+                    key={xAxis}
+                    yAxis={yAxis}
+                    xAxis={xAxis}
+                    onCellClick={onCellClick}
+                    selectedColor={selectedColor}
+                    cellColor={cellColor}
+                />
+            );
         });
     }
 

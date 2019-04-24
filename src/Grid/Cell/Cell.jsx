@@ -12,13 +12,17 @@ export class Cell extends Component {
     }
 
     onCellClick() {
-        const { xAxis, yAxis } = this.props;
-        console.log([xAxis, yAxis]);
+        const { xAxis, yAxis, onCellClick } = this.props;
+        onCellClick({colorId: 'a', xAxis, yAxis});
     }
 
     render() {
+        const { cellColor } = this.props;
+        const cellStyles = {
+            backgroundColor: `#${cellColor}`
+        };
         return (
-            <span id='Cell' className='cell' onClick={this.onCellClick} />
+            <span id='Cell' className='cell' onClick={this.onCellClick} style={cellStyles}/>
         );
     }
 };
