@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 
 // Components
-import { Row } from '../Row/Row.jsx';
+import { Row } from './Row/Row.jsx';
 
 export class Grid extends Component {
     constructor(props) {
